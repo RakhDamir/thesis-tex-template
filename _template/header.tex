@@ -1,0 +1,71 @@
+\usepackage[ngerman,english]{babel}   % supports typesetting in multiple languages
+\usepackage[utf8]{inputenc} % Enables input encoding for the document in UTF-8, allowing the use of a wide range of international characters directly in the source code.
+\usepackage[T1]{fontenc}    % Changes the font encoding to T1, enhancing the quality of font rendering and supporting a wider range of European characters.
+\usepackage{lmodern}        % Loads the Latin Modern fonts, which are an enhanced version of the classic Computer Modern fonts, offering better scaling and more characters.
+\usepackage[helvetica]{quotchap} % Alters chapter headings with a distinctive style and uses a Helvetica-like font for chapter numbers.
+\usepackage{textpos}        % Positions text blocks at specific locations on a page.
+\usepackage{layouts}        % provides a set of tools and commands for visualizing and displaying the layout of a document.
+\usepackage{amsmath}        % Enhances LaTeX's mathematical typesetting capabilities.
+\usepackage{amssymb}        % Adds an extended set of mathematical symbols.
+\usepackage{amsfonts}       % Provides additional mathematical fonts.
+\usepackage{mathtools}      % Offers improvements to amsmath for math typesetting.
+\usepackage{bm}             % Enables bold mathematics in documents.
+\usepackage{upgreek}        % Provides upright Greek letters for math expressions.
+\usepackage{cite}           % Improves LaTeX's citation mechanism for bibliographies.
+\usepackage{graphicx}       % Essential for including and manipulating graphics.
+\usepackage{verbatim}       % Displays text exactly as typed, ignoring LaTeX formatting.
+\usepackage{textcomp}       % Access to additional text symbols.
+\usepackage{color}          % Adds basic colored text functionality.
+\usepackage[dvipsnames]{xcolor} % Additional colors. Extends color capabilities for tints, shades, and mixes.
+\usepackage[breakable, theorems, skins]{tcolorbox} % Provides an environment for colored and framed text boxes with various features, including the ability to break across pages, support for theorem-like structures, and customizable skins.
+\usepackage{xfrac}          % for nice fractions % Enables typesetting of inline fractions in a visually appealing way.
+\usepackage{soul}           % to strikeout text % Provides hyphenatable spacing out (letterspacing), underlining, striking out, etc., in text.
+\usepackage{caption}        % http://ctan.org/pkg/caption % Change style of caption for tables to <Table 1. BlaBla>
+\usepackage[labelformat=simple]{subcaption} % http://ctan.org/pkg/caption   % including subfigure
+\renewcommand\thesubfigure{(\alph{subfigure})} % make sure that references to subfigures are in parenthesis
+\usepackage{array}          % package to vary width of tables
+\usepackage{stfloats}       % <-- added to put long equation at the bottom of a page (two columns). Refer to [https://tex.stackexchange.com/questions/345461/add-an-equation-at-the-bottom-of-a-two-column-conference-paper] for more details
+\usepackage{etoolbox}       % for boolean variables
+\usepackage{longtable}      % longtable for list of abreviations and symbols
+\usepackage[en-US,showzone=false]{datetime2} % package to get the current time
+\usepackage{url}            % Facilitates the typesetting of URLs, allowing for proper line-breaking and font styling.
+    \urlstyle{same}
+\usepackage{fancyhdr}       % for nice headers and footers
+\usepackage{lastpage}       % Allows reference to the last page number in your document.
+\usepackage{titling}        % Customizes the document's title section.
+\usepackage[pdfpagelabels=true,breaklinks, plainpages=false, linktoc=all]{hyperref} % package is used to create hyperlinks in the document. 
+\usepackage{bookmark}       % This package is an extension of hyperref. It enhances the bookmarking features in the produced PDF. 
+\usepackage{afterpage}      % Allows you to specify something that LaTeX will execute at the next page break.
+\usepackage{units}          % for nicely typset units (m, cm, dB)
+\usepackage{makeidx}        % package to create index
+\usepackage{acro}           % package to handle abbreviations (more sophisticated)
+%\usepackage[printonlyused]{acronym}  % package to handle abbreviations (simpler)
+\usepackage{amsthm}         % for designing theorems
+\usepackage{totcount}       % creating and managing total counters in a document
+\usepackage[figure,table]{totalcount} % Counts the total number of figures and tables in the document and provides commands to access these totals.
+\usepackage{setspace}       % for double and onehalf spacing
+\usepackage{algorithm}      % used for floating the algorithm environment
+%\usepackage{algorithmicx}  % a flexible and easy-to-use package for typesetting algorithms in LaTeX
+%\usepackage{algpseudocode} % provides a predefined set of commands for typesetting algorithms in a pseudocode format
+\usepackage[titletoc,title,header]{appendix}  % for a nicer appendix, per chapter appendices, subapp., some conflicts with KOMA class, using it only to have appendix prefix also in TOC, rest needs to be done with class options
+\usepackage{minitoc}        % Allows the creation of mini-tables of contents (ToCs) at the beginning of each chapter, section, or part.
+% try to replace with etoc package
+\usepackage[hang,flushmargin]{footmisc} % modify the formatting of footnotes in the document
+\usepackage{charter}
+%\usepackage{titlesec}
+
+% Handling of floats
+\usepackage[section,verbose]{placeins}
+\usepackage[all]{nowidow}
+
+% For PDF document without binding offset
+\usepackage[a4paper, bindingoffset=0cm,left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry} % Provides an easy and flexible interface to adjust page dimensions and margins.
+% Print (with binding offset)
+%\usepackage[a4paper, bindingoffset=0.3cm,left=2.5cm, right=2.2cm, top=2.5cm, bottom=3cm]{geometry}
+
+% For dummy text only
+\usepackage{blindtext}  % \blindtext[10]
+\usepackage{lipsum}     % for some dummy text % \lipsum[10]
+
+\usepackage{ulem}
+

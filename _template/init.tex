@@ -1,0 +1,60 @@
+%======================================================================
+% INITIALIZATIONS
+%================================================================
+
+%==== FIGURES ===================================================
+\graphicspath{./_figures}       % specifies the directories where graphics files are located
+
+
+%==== TABLE OF CONTENT ==========================================
+\setcounter{tocdepth}{1} % Only Chapters and Subsections
+
+
+%==== COLORS IN LINKS ===========================================
+\definecolor{darkblue}{RGB}{50,107,164} % Bootstrap style
+\colorlet{linkclr}{darkblue}
+\colorlet{urlclr}{darkblue}
+\colorlet{citeclr}{darkblue}
+\colorlet{fileclr}{darkblue}
+
+
+%%==== INDENT ====================================================
+%\setlength{\parindent}{15pt}
+%\setlength{\parskip}{8pt} 
+
+
+%================================================================
+\allowdisplaybreaks             % allow AMS multiline equations to have page breaks inbetween
+\hbadness = 1000000             % when to report badness errors
+\vfuzz4pt                       % Don't report over-full v-boxes if over-edge is small
+\hfuzz4pt                       % Don't report over-full h-boxes if over-edge is small
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\setcapindent{1em}              % only partially indented second line of captions
+
+
+%==== HYPERLINKS IN PDF =========================================
+\hypersetup{
+    plainpages=false,
+    pdfauthor={\authorname},    % Sets the author metadata
+    pdftitle={\pdftitle},       % Sets the title metadata for the PDF. 
+    pdfsubject={\pdfsubject},   % Defines the subject of the document
+    pdfview=FitH,               % These options set the default zoom level of the PDF when opened. FitH fits the width of the page to the window.
+    pdfstartview=FitH,          
+    bookmarksnumbered=true,     % If true, adds numbers to the sections in the PDF bookmarks for easy navigation.
+    bookmarksopen=true,         % If true, the bookmarks in the PDF are expanded when the document is first opened.
+    colorlinks=true,            % If true, this option colors the text of the links and citations instead of adding a colored box around them.
+    breaklinks=true,            % Enables link text to break across lines, improving the layout of hyperlinks in the document.
+    linkcolor=linkclr,
+    urlcolor=urlclr,
+    citecolor=citeclr,
+    filecolor=fileclr,
+    linktocpage=true,           % only the page number part of each ToC entry becomes a hyperlink.
+    pdfdisplaydoctitle=true,    % ensures that the PDF viewer's title bar will display the document title 
+}
+
+
+%==== INDEX =====================================================
+\makeindex                      % used to initialize an index for the document. Use \index{} to add keyword in the list
+
+%================================================================

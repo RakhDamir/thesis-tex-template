@@ -1,0 +1,70 @@
+# OS generated files #
+######################
+*.DS_Store
+#._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Folders named _trash, _temp, _unfinished, _other, or _TODO will not be tracked
+######################
+_trash/
+_temp/
+_unfinished/
+_TODO/
+_other/
+
+# MATLAB temp files #
+######################
+*.m~
+*.asv~
+*.asv
+
+# LaTeX related files -- only keep .pdf, .tex, .bib, and .ltx #
+######################
+*.aux
+*.bbl
+*.blg
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.upa
+*.bak
+*.ps
+*.dvi
+*-converted-to.pdf
+*-eps-converted-to.pdf
+/*.pdf
+/thesis-example.pdf
+
+# Microsoft related files
+######################
+*.tmp
+### Word temporary
+~$*.doc*
+### Word Auto Backup File
+Backup of *.doc*
+### Excel temporary
+~$*.xls*
+### Excel Backup File
+*.xlk
+### PowerPoint temporary
+~$*.ppt*
+### Visio autosave temporary files
+*.~vsd*
+
+# Simulation results
+######################
+# keep only eps files
+_figures/*
+!_figures/*.eps
+
+
+# Other documents
+######################
+/*.txt
+_figures/*.rar

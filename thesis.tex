@@ -1,0 +1,108 @@
+%---------------------------------------------------------------
+%
+%       TEMPLATE FOR A PHD THESIS 
+%
+%---------------------------------------------------------------
+% Damir Rakhimov
+% CRL, TU-Ilmenau, January 2024
+%
+
+\documentclass[ twoside,                % Formats the document for two-sided printing (like a book).
+                fontsize=11pt,          % Sets the base font size to 11 points.
+                chapterprefix=false,    % Indicates that chapters should not be prefixed with the word "Chapter"
+                appendixprefix=true,    % Adds a prefix to appendix chapters/sections
+                headings=normal,        % Uses normal-sized headings.
+                headsepline,            % Adds a horizontal line below the header.
+                footsepline,            % Adds a horizontal line above the footer.
+                captions=nooneline,     % Single-line captions are aligned like multi-line ones.
+                version=last,           % Option related to document versioning.
+                listof=totoc,           % Adds lists of figures/tables to the table of contents.
+                index=totoc,            % Includes the index in the table of contents.
+                bibliography=totoc,     % Adds the bibliography to the table of contents.
+                numbers=enddot,         % Adds a period after sectional numbering.
+                %openany,               % Starts chapters on any page, not just right-hand pages.
+                %cleardoubleempty,      % Ensures that chapters begin on a right-hand page in a two-sided document (deprecated)
+                %draft,                 % Marks overfull hboxes, doesn't include images for faster processing
+                ]{scrbook}
+%
+
+% INFO ABOUT THE AUTHOR AND THE DOCUMENT
+\newcommand{\authorname}{Damir Rakhimov}
+\newcommand{\dateofbirth}{DD.MM.YYYYYY}
+\newcommand{\placeofbirth}{PlaceName}
+\newcommand{\phdtitle}{My wonderful PhD Thesis: \\ The very long title \\ and subtitle}
+\newcommand{\pdftitle}{PhD thesis, Damir Rakhimov, TU Ilmenau (2024)}
+\newcommand{\pdfsubject}{New developments in multidimensional signal processing}
+\newcommand{\examinerA}{Prof. Dr. John Doe 1}
+\newcommand{\examinerB}{Prof. Dr. John Doe 2}
+\newcommand{\examinerC}{Prof. Dr. John Doe 3}
+\newcommand{\submndate}{DD.MM.YYYY}
+\newcommand{\examndate}{DD.MM.YYYY}
+\newcommand{\docid}{urn:nbn:de:gbv:ilm1-YYYYNNNNNN}
+%
+
+% PREAMBLE TO THE DOCUMENT
+\input{_template/header}    % definition of used packages
+\input{_template/define}    % options and special commands for the document (HAS TO GO AFTER HEADER)
+\input{_template/macros}    % definition of new commands used in the content of the documents 
+\input{_template/init}      % initialization of constants and template variables
+%
+%=================================================================
+% VVV Comment lines below to hide the corresponding marks VVV
+%\booltrue{showmarks} % just comment this line to hide comments 
+%=================================================================
+
+\begin{document}
+    \dominitoc % initialization of small tables of contents for sections
+    
+    %=============================================================
+    % FRONT AND TITLE
+    \frontmatter %in book class: triggers preface with roman numbers
+    \pagenumbering{Roman}
+    %
+    \input{_sources/front.tex}
+    \input{_sources/title.tex}
+    
+    %=============================================================
+    % INTRODUCTION
+    \pagestyle{plain}
+    %
+    \input{_sources/abstract_en.tex}
+    \input{_sources/abstract_de.tex}
+    \input{_sources/acknowledgments.tex}
+    %
+    \tableofcontents \addcontentsline{toc}{chapter}{Contents}
+    %
+    \listoffigures
+    \listoftables
+    \listofalgorithms
+    
+    %====================================================================================
+    % MAIN PART OF THE DOCUMENT
+    \mainmatter
+    \setcounter{mtc}{7} % service for small tables of content in front of each section
+    %
+    \input{_sources/test_chapter_1.tex}
+    \input{_sources/test_chapter_2.tex}
+    %
+    \include{_sources/conclusions.tex}
+    \include{_sources/future_work.tex}
+    
+    %=============================================================
+    % APPENDIX
+    \appendix        %
+    %\addappheadtotoc % the order of commands is important for proper TOC
+    %\appendixpage    % 
+    \begin{appendices}
+        \include{_sources/appendix_A.tex}
+        \include{_sources/appendix_B.tex}
+    \end{appendices}
+    
+    %=============================================================
+    % ENDING OF THE DOCUMENT
+    \backmatter
+    %
+    \input{_sources/bibliography} \nocite{*}
+    \input{_sources/index}
+    \input{_sources/erklaerung}
+\end{document}

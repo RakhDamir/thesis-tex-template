@@ -1,0 +1,326 @@
+% regular expression to search and replace 
+%\\includegraphics\[(.*)\]\{(.*)\}
+%\\includegraphics\[$1\]\{\\imagesFolder $2\}
+
+% Unspecified
+\newcommand{\itembold}{\item[\stepcounter{enumii}\bf(\theenumii)]}
+
+
+%% Linear algebra
+\newcommand{\ma}[1]{\bm{#1}}                                % matrix/vector
+\newcommand{\ten}[1]{{\bm{\mathcal{#1}}}}                   % tensor
+
+% DOMAINs and SETs
+\newcommand{\compl}{\mathbb{C}}                             % Complex domain
+\newcommand{\real}{\mathbb{R}}                              % Real domain
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\set}[1]{{\mathcal #1}}                         % set
+\newcommand{\integer}{\mathbb{Z}}                           % integer numbers
+
+%% MATH FUNCTIONS
+\newcommand{\opof}[2]{\mathop{{\rmfamily{#1}}}\left({#2}_{{}_{}}\right)}         % FUN(x)
+\newcommand{\opofsub}[3]{\mathop{{\rmfamily{#1}}}_{#2}\left(#3\right)} % FUN_y(x)
+\newcommand{\absof}[1]{\left|#1\right|}                     % absolute value
+\newcommand{\lnof}[1]{ {\rmfamily ln} \left( #1 \right)}          % natural logarithm
+\newcommand{\expof}[1]{{{\rmfamily e}}^{#1}}                      % e^{}
+\renewcommand{\exp}[1]{{\rmfamily exp}\left(#1\right)}            % exp()
+%\newcommand{\expvof}[1]{\opof{$\mathbb{E}$}{#1}}           % expected value
+\newcommand{\expvof}[1]{{\mathbb{E}}\left\{#1\right\}}      % expected value
+\newcommand{\eye}[1]{\ma{I}_{#1}}                           % identity matrix
+\newcommand{\supereye}[1]{\ten{I}_{#1}}                     % super identity tensor
+\newcommand{\Lfct}[1]{{\rmfamily L} {\left(#1\right)}} % log-likelihood function
+\newcommand{\rect}[1]{{\rmfamily rect}\left(#1\right)}            % rectangular function
+\newcommand{\tri}[1]{{\rmfamily tri}\left(#1\right)}              % triangle function 
+\newcommand{\si}[1]{{\rmfamily si}\left(#1\right)}                % si function
+\newcommand{\sinc}[1]{{\rmfamily sinc}\left(\,#1\,\right)}        % sinc function
+\newcommand{\siinv}[1]{{\rmfamily si}^{-1}\left(#1\right)}        % inverse of si function
+\newcommand{\cosof}[1]{\cos\left(#1\right)}                 % cos function
+\newcommand{\cosinv}[1]{{\rmfamily cos}^{-1}\left(#1\right)}      % inverse of cos function
+\newcommand{\sinof}[1]{\sin\left(#1\right)}                 % sin function
+\newcommand{\cosofs}[1]{\cos\left[#1\right]}                % cos function (square brackets)
+\newcommand{\sinofs}[1]{\sin\left[#1\right]}                % sin function (square brackets)
+\DeclareMathOperator{\EX}{\mathbb{E}}                       % expected value
+%\newcommand{\realof}[1]{\mathrm{Re}{#1}}                   % real part
+%\newcommand{\imagof}[1]{\mathrm{Im}{#1}}                   % imaginary part
+\newcommand{\realof}[1]{\opof{Re}{#1}}                      % real part
+\newcommand{\realoffbr}[1]{{\rmfamily Re}{{\left\{#1\right\}}}}   % real part
+\newcommand{\imagof}[1]{\opof{Im}{#1}}                      % imaginary part
+\newcommand{\imageof}[1]{\text{im}\left\lbrace{#1}\right\rbrace} % image or span of subspace
+\newcommand{\diagof}[1]{\opof{diag}{#1}}                    % diag operator
+\newcommand{\detof}[1]{\opof{det}{#1}}                      % det operator
+\newcommand{\rankof}[1]{\opof{rank}{#1}}                    % rank
+%\newcommand{\maxof}[1]{\opof{max}{#1}}                      % max (incompatible with optidef, mathtools)
+%\newcommand{\minof}[1]{\opof{min}{#1}}                      % min (incompatible with optidef, mathtools)
+\newcommand{\argof}[1]{\opof{arg}{#1}}                      % argument (phase)
+\newcommand{\medof}[1]{\opof{Med}{#1}}                      % median value
+\newcommand{\eigvof}[2]{\opofsub{EV}{#2}{#1}}               % argument (phase)
+%\newcommand{\vecof}[1]{\opof{vec}{#1}}                     % vec operator
+\newcommand{\vecof}[1]{{{\rmfamily vec}}\left\lbrace{#1}\right\rbrace} % vec operator
+\newcommand{\unvecof}[2]{\opofsub{unvec}{#2}{#1}}           % unvec operator \unvecof{\ma{g}}{M \times N}
+\newcommand{\orthof}[1]{\opof{orth}{#1}}                    % vec operator
+\newcommand{\traceof}[1]{{\rmfamily trace}\left\{#1\right\}}      % trace of a matrix 
+\newcommand{\bigO}[1]{\opof{{\mathcal O}}{#1}}              % big-O-notation (complexity)
+\newcommand{\matelem}[3]{\left[#1\right]_{(#2,#3)}}         % (i,j) element of A: \matelem{\ma{A}}{i}{j}
+\newcommand{\vecfromel}[3]{\left[#1\right]_{#2=1,2,\ldots, #3}} % create vector from elements: {a_i}{i}{I} -> [a_i]_{i=1,...,I}
+\newcommand{\cbr}[1]{\left({#1}_{{}_{}}\right)}              % curly brackets
+\newcommand{\cbrl}[1]{\Big\left(#1\Big\right)}         % curly brackets
+\newcommand{\cbrnlr}[2]{#2(#1#2)}                          % curly brackets \cbrnlr{}{\Big}
+\newcommand{\sbr}[1]{\left[{#1}_{{}_{}}\right]}                  % square brackets
+\newcommand{\sbrl}[1]{\Big[#1\Big]}                    % square brackets large
+\newcommand{\sbrnlr}[2]{#2[#1#2]}                      % square brackets \sbrnlr{}{\Big}
+\newcommand{\fbr}[1]{\left\{{#1}_{{}_{}}\right\}}                % figure brackets
+\newcommand{\fbrl}[1]{\Big\left\{\,#1\,\Big\right\}}       % figure brackets
+\newcommand{\fbrnlr}[2]{#2\{\,#1\,#2\}}                    % figure brackets \fbrnlr{}{\Big}
+\newcommand{\ceil}[1]{{\left\lceil#1\right\rceil}}          % ceil brackets
+\newcommand{\floor}[1]{{\left\lfloor#1\right\rfloor}}       % floor brackets
+\newcommand{\range}[1]{{\left[#1\right)}}                   % curly brackets
+\newcommand{\modof}[1]{{\rmfamily mod}{\left(\,#1\,\right)}}      % modulus
+\newcommand{\normof}[2]{\left\|#1\right\|_{#2}}             % norm
+\newcommand{\twonorm}[1]{\normof{#1}{2}}                    % two-norm
+\newcommand{\normlr}[1]{\left|#1\right|}                    % norm of a vector (without subscript)
+\newcommand{\fronorm}[1]{\normof{#1}{\rmfamily F}}                % Frobenius norm
+\newcommand{\honorm}[1]{\normof{#1}{\rmfamily H}}                 % higher-order norm
+\newcommand{\normofnlr}[3]{#3\|#1#3\|_{#2}}                 % norm w/o left,right, e.g., \normofnlr{X}{2}{\Big}
+\newcommand{\twonormnlr}[2]{\normofnlr{#1}{2}{#2}}          % e.g. \twnormnlr{X}{\Big} or \twnormnlr{X}{}
+\newcommand{\froonormnlr}[2]{\normofnlr{#1}{{\rmfamily F}}{#2}}   % \twnormnlr{X}{\Big}
+\newcommand{\honormnlr}[2]{\normofnlr{#1}{{\rmfamily H}}{#2}}     % \twnormnlr{X}{\Big}
+\newcommand{\innerp} [2]{{\left\langle·#1,·#2·\right\rangle}} % inner product
+\newcommand{\innertp}[3]{{\left\langle·#1,·#2·\right\rangle}_{#3}} % generalized tensor inner product
+\newcommand{\pdv}[2]{\frac{\partial{#1}}{\partial{#2}}}     % partial derivative
+\newcommand{\estimates}{\mathrel{\hat{=}}}                  % corresponds to , estimates to
+
+
+%% OPERATIONS   
+\newcommand{\outerp}{\circ}                                 % outer product
+\newcommand{\krp}{\diamond}                                 % Khatri-Rao product: A \krp  B
+\newcommand{\kron}{\otimes}                                 % Kronecker product:  A \kron B
+
+\newcommand{\schur}{\odot}                                  % Schur product: A \schur B
+\newcommand{\ischur}{\oslash}                               % inverse Schur product: A \ischur B
+\newcommand{\degrees}{\circ}                                % e.g., 90^\degrees
+\newcommand{\inv}{{-1}}                                     % inverse: ^\inv
+\newcommand{\pinv}{+}                                       % pseudo-inverse: ^\pinv
+%\newcommand{\pinv}{\dagger}                                % pseudo-inverse: ^\pinv
+\newcommand{\conj}{*}                                       % complex conjugate: ^\conj
+\newcommand{\trans}{{\rmfamily T}}                                % transpose
+\newcommand{\herm}{{\rmfamily H}}                                 % hermitian
+\newcommand{\mtrans}{-{\rmfamily T}}                              % inv.transpose: ^\mtrans
+\newcommand{\mherm}{-{\rmfamily H}}                               % inv.hermitian: ^\mherm
+\newcommand{\pckron}{\boxtimes}
+\newcommand{\offdiag}[1]{\opof{off}{#1}}
+\newcommand{\covof}[1]{\expvof{#1 \cdot #1^\herm}}          % covariance matrix ;) \covov{\ma{x}} -> E[x*x']
+\newcommand{\pcovof}[1]{\expvof{#1 \cdot #1^\trans}}        % pseudo-covariance matrix 
+\newcommand{\hcovof}[1]{\expvof{#1^\herm \cdot #1}}         % covariance matrix of x'
+\newcommand{\argmax}{\mathop{{\arg \max}}}                  % argmax_x f(x)
+\newcommand{\argmin}{\mathop{{\arg \min}}}                  % argmin_x f(x)
+\newcommand{\eqdef}{\stackrel{.}{=}}                        % definition
+\newcommand{\krondelta}[1]{{\delta[#1]}}
+
+%% TENSORS
+\newcommand{\tconcat}{\mbox{\Huge \textvisiblespace \hspace{-0.2ex}} \;}    % concatenation of tensors 
+\newcommand{\catten}[3]{\left[#1 \; \tconcat_{#3} \; #2\right]}             % \catten{\ten{A}}{\ten{B}}{n}
+\newcommand{\cattenmult}[4]{\left[#1 \tconcat_{#4} #2 \tconcat_{#4} \ldots \tconcat_{#4} #3\right]} %\cattenmult{\ten{A}_1}{\ten{A}_2}{\ten{A}_d}{n}
+\newcommand{\unf}[2]{\left[\, {#1}_{{}_{}}^{{}^{}} \, \right]_{(#2)}}                 % \unf{\ten{X}}{n}
+%\newcommand{\unfnot}[2]{\left[ #1 \right]_{(#2)}}          % \unfnot{\ten{X}}{n}
+%\newcommand{\unf}[2]{\unfnot{\ten{#1}}{#2}}                % \unf{X}{n}
+\newcommand{\subsel}[1]{#1^{({\rmfamily sel})}}
+
+%% ESPRIT algorithm
+%\newcommand{\fba}[1]{#1^{({\rmfamily fba})}}
+\newcommand\fba{{(\mathrm{fba})}}
+\newcommand{\fbaT}[1]{#1^{({\rmfamily fba})^\trans}}
+\newcommand{\fbaH}[1]{#1^{({\rmfamily fba})^\herm}}
+\newcommand{\fbainv}[1]{#1^{({\rmfamily fba})^{-1}}}
+\newcommand{\fbanc}[1]{#1^{({\rmfamily nc})^{({\rmfamily fba})}}}
+\newcommand{\sigfba}[1]{#1^{{\rmfamily [s]}({\rmfamily fba})}}
+\newcommand{\allmodesbut}[3]{{\overset{#1=1}{\underset{#1 \neq #2,#3}{}} }}
+\newcommand\Msel{m}
+\newcommand\Msub{M_\mathrm{sub}}
+\newcommand\dinc{d_\mathrm{max}^{(\mathrm{inc})}}
+\newcommand\dcoh{d_\mathrm{max}^{(\mathrm{coh})}}
+\newcommand{\sig}{{\rmfamily s}}
+\newcommand{\nul}{{\rmfamily n}}
+\newcommand{\di}{{(1)}}
+\newcommand{\dii}{{(2)}}
+\newcommand{\diii}{{(3)}}
+\newcommand{\dr}{{(r)}}
+\newcommand{\sub}{\mathrm{s}}
+\newcommand{\subi}{\mathrm{s,1}}
+\newcommand{\subii}{\mathrm{s,2}}
+\newcommand{\subiii}{\mathrm{s,3}}
+% redefind \hat command
+\let\oldhat\hat
+\renewcommand{\hat}[1]{{}\oldhat{#1}}
+
+% CONSTANTs and LABELs
+%\newcommand{\e}{{\rmfamily e}}                                   % Euler number
+\renewcommand{\pi}{\uppi}                                   % pi
+\renewcommand{\j}{\jmath}                                   % imaginary unit
+%\newcommand{\onehalf}{\textonehalf}
+%\newcommand{\onehalf}{\sfrac{1}{2}}
+\newcommand{\onehalf}{\frac{1}{2}}
+\newcommand{\phm}{{\phantom{-}}}                                % phantom minus
+\newcommand{\pminus}{{\phantom{-}}}
+\newcommand{\dprime}{{\prime\prime}}
+
+%\newcommand\half{\text{\char"00BD}}
+
+%\newcommand{\a}{\ma{a}}
+%\newcommand{\A}{\ma{A}}
+\newcommand{\T}{{\rmfamily T}}
+\newcommand{\R}{{\rmfamily R}}
+\newcommand{\AR}{\ma{A}_{\rmfamily R}}
+\newcommand{\aR}{\ma{a}_{\rmfamily R}}
+\newcommand{\ar}{\ma{a}_{\rmfamily r}}
+\newcommand{\AT}{\ma{A}_{\rmfamily T}}
+\newcommand{\aT}{\ma{a}_{\rmfamily T}}
+\newcommand{\at}{\ma{a}_{\rmfamily t}}
+\newcommand{\Af}{\ma{A}_{\rmfamily f}}
+\newcommand{\af}{\ma{a}_{\rmfamily f}}
+\newcommand{\Ae}{{A}_{\rmfamily e}} % effective aperture
+\newcommand{\Aem}{{A}_{\rmfamily em}} % effective aperture
+\newcommand{\ARhat}{\ma{\hat{A}}_{\rmfamily R}}
+\newcommand{\AThat}{\ma{\hat{A}}_{\rmfamily T}}
+\newcommand{\Afhat}{\ma{\hat{A}}_{\rmfamily f}}
+\newcommand{\Bf}{B_{\rmfamily f}}
+\newcommand{\DR}{\ma{D}_{\rmfamily R}}
+\newcommand{\DT}{\ma{D}_{\rmfamily T}}
+\newcommand{\Df}{\ma{D}_{\rmfamily f}}
+\newcommand{\dft}{{\rmfamily DFT}}
+\newcommand{\myEpsilon}{\mathcal{E}}
+\newcommand{\fD}{f_{\rmfamily D}}                                 % one doppler frequency
+\newcommand{\FD}{F_{\rmfamily D}}                                 % frequency constant
+\newcommand{\f}{{\rmfamily f}} 
+\newcommand{\F}{\ma{F}} 
+\newcommand{\fDl}{f_{{\rmfamily D},\ell}}                         % one doppler frequency
+\newcommand{\hb}{{\ma{h}_{\rmfamily b}}}
+\newcommand{\Hb}{{\ten{H}_{\rmfamily b}}}                         % channel tensor in beamspace
+\newcommand{\hbhat}{{\ma{\hat{h}}_{\rmfamily b}}}
+\newcommand{\Hbhat}{{\ten{\hat{H}}_{\rmfamily b}}}
+\newcommand{\Mt}{{M_{\rmfamily t}}}
+\newcommand{\mT}{m_{\rmfamily T}}
+\newcommand{\MT}{{M_{\rmfamily T}}}
+\newcommand{\Mr}{{M_{\rmfamily r}}}
+\newcommand{\mR}{m_{\rmfamily R}}
+\newcommand{\MR}{{M_{\rmfamily R}}}
+\newcommand{\Nt}{{N_{\rmfamily t}}}
+\newcommand{\NT}{{N_{\rmfamily T}}}
+\newcommand{\Nr}{{N_{\rmfamily r}}}
+\newcommand{\NR}{{N_{\rmfamily R}}}
+\newcommand{\NRB}{N_{\rmfamily B,R}}
+\newcommand{\NTB}{N_{\rmfamily B,T}}
+\newcommand{\Ncp}{N_{\rmfamily cp}}
+\newcommand{\Ntau}{N_{\rmfamily \tau_{max}}}
+\newcommand{\Nb}{\ten{N}_{\rmfamily b}}
+\newcommand{\np}{n_{p}}
+\newcommand{\Np}{N_{\rmfamily p}}
+\newcommand{\NP}{N_{\rmfamily P}}
+\newcommand{\NPi}[1]{N_{\rmfamily P,#1}}
+\newcommand{\nf}{n_{\rmfamily f}}
+\newcommand{\nx}{n_{\rmfamily x}}
+\newcommand{\ny}{n_{\rmfamily y}}
+\newcommand{\Nf}{N_{\rmfamily f}}
+\newcommand{\Nfft}{N_{\rmfamily fft}}
+\newcommand{\re}{{\rmfamily re}}
+\newcommand{\Rt}{\ma{R}_{\rmfamily T}}
+\newcommand{\Rr}{\ma{R}_{\rmfamily R}}
+\newcommand{\RS}{{\textsf{RS}}}
+\newcommand{\RSf}{\textsf{R}}
+\newcommand{\lf}{{\ell_{\rmfamily f}}}
+\newcommand{\Lf}{{L_{\rmfamily f}}}
+\newcommand{\LF}{{\rmfamily L}}
+\newcommand{\Msubi}[1]{{M_{{\rmfamily sub},#1}}}
+\newcommand{\Msubf}{M_{\rmfamily sub,f}}
+\newcommand{\Nsubp}{N_{\rmfamily sub,p}}
+\newcommand{\Hw}{\ma{H}_{w}}
+\newcommand{\PT}{P_{\rmfamily T}}
+\newcommand{\Pt}{P_{\rmfamily T}}
+\newcommand{\uW}{\textmu{}W}
+\newcommand{\Tmax}{T_{\rmfamily max}}
+\newcommand{\Tm}{T_{\rmfamily m}}
+\newcommand{\Ts}{T_{\rmfamily s}}
+\newcommand{\opt}{{\rmfamily opt}}                            % subscript of optimal value
+\newcommand{\snr}{{\rmfamily SNR}}
+\newcommand{\sinr}{{\rmfamily SINR}}                          % signal to interference plus noise ratio
+\newcommand{\nmse}{{\rmfamily NMSE}}                          % normalized meas squared error
+\newcommand{\rmse}{{\rmfamily RMSE}}                          % root mean squared error
+\newcommand{\mmse}{{\rmfamily MMSE}}                          % minimum mean squared error
+\newcommand{\mse}{{\rmfamily MSE}}                            % mean squared error
+\newcommand{\crb}{{\rmfamily CRB}}                            % cramer-rao lower bound
+\renewcommand{\Re}{{\rmfamily Re}}
+\renewcommand{\ss}{{\rmfamily ss}}
+\newcommand{\eff}{{({\rmfamily eff})}}
+\newcommand{\comb}{{\rmfamily c}}
+\newcommand{\um}{{\rmfamily UM}}
+\newcommand{\proj}{{\rmfamily p}}
+
+\newcommand{\e}{{\rmfamily e}}
+\newcommand{\x}{{\rmfamily x}}
+\newcommand{\y}{{\rmfamily y}}
+\newcommand{\z}{{\rmfamily z}}
+\newcommand{\q}{{\rmfamily i}}
+\newcommand{\mx}{{\rmfamily m}}
+\newcommand{\crf}{{\rmfamily c}}
+\newcommand{\mW}{\,{\rmfamily mW}}
+\newcommand{\W}{\,{\rmfamily W}}
+\newcommand{\dB}{\,{\rmfamily dB}}
+\newcommand{\dBi}{\,{\rmfamily dBi}}
+\newcommand{\mm}{\,{\rmfamily mm}}
+\newcommand{\cm}{\,{\rmfamily cm}}
+\newcommand{\m}{\,{\rmfamily m}}
+\newcommand{\s}{\,{\rmfamily s}}
+\newcommand{\km}{\,{\rmfamily km}}
+\newcommand{\hr}{\,{\rmfamily hr}}
+\newcommand{\gr}{\,{\rmfamily gr}}
+\newcommand{\Pa}{\,{\rmfamily Pa}}
+\newcommand{\kPa}{\,{\rmfamily kPa}}
+\newcommand{\Hz}{\,{\rmfamily Hz}}
+\newcommand{\kHz}{\,{\rmfamily kHz}}
+\newcommand{\MHz}{\,{\rmfamily MHz}}
+\newcommand{\GHz}{\,{\rmfamily GHz}}
+\newcommand{\THz}{\,{\rmfamily THz}}
+\newcommand{\celsius}{\vphantom{C}^\circ{\rmfamily C}}
+\newcommand{\ris}{{\rmfamily ris}}
+\newcommand{\rla}{{\rmfamily rla}}
+\newcommand{\dip}{{\rmfamily dip}}
+\newcommand{\tx}{{\rmfamily tx}}
+\newcommand{\rx}{{\rmfamily rx}}
+\newcommand{\cell}{{\rmfamily cell}}
+\newcommand{\bit}{{\rmfamily bit}}
+\newcommand{\n}{{\rmfamily N}}
+\newcommand{\CL}{{\rmfamily CL}}  % coupling level
+\newcommand{\str}{{\rmfamily ST}} % surface - transmitter
+\newcommand{\rs}{{\rmfamily RS}}  % receiver - surface 
+\newcommand{\rt}{{\rmfamily RT}}  % receiver - transmitter
+\newcommand{\srf}{{\rmfamily S}}  % surface
+\newcommand{\trs}{{\rmfamily T}}  % transmitter
+\newcommand{\rcv}{{\rmfamily R}}  % receiver
+\newcommand{\farfield}{{\rmfamily FF}}  % far-field
+\newcommand{\nearfield}{{\rmfamily NF}} % near-field
+\newcommand{\load}{{\rmfamily Load}}
+\newcommand{\mtl}{{\rmfamily MI}}
+\newcommand{\oneover}[1]{\frac{1}{#1}}
+\newcommand{\impin}{{\rmfamily imp}}
+\newcommand{\combin}{{\rmfamily comb}}
+\newcommand{\refl}{{\rmfamily rfl}}
+\newcommand{\err}{{\rmfamily err}}
+\renewcommand{\o}{{\rmfamily o}}
+\newcommand{\ind}{i}
+\newcommand{\mode}{\texttt{mode}}
+\newcommand{\core}{\texttt{core}}
+
+%    COLORs
+\newcommand{\blue}[1]{{\color[rgb]{0,0,1} #1}}
+\newcommand{\red}[1]{{\color[rgb]{1,0,0} #1}}
+\newcommand{\green}[1]{{\color[rgb]{0,1,0} #1}}
+
+%=== stuff related to this document only =======================
+
+
+
+\DeclareMathAlphabet      {\mathbfit}{OML}{cmm}{b}{it}
+
+
+
+

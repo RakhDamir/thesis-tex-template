@@ -1,0 +1,178 @@
+%================================================================
+% definition of boolean variables
+\newbool{showmarks}         % false by default
+
+
+%================================================================
+%\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]      % for theorems (Lehr- od. Grundsatze)
+\newtheorem{cor}[theorem]{Corollary}        % folgesatz, konsequenz, ...
+\newtheorem{lem}[theorem]{Lemma}            % hilfssatz, meist im beweis eines wichtigeren
+\newtheorem{prop}[theorem]{Proposition}     % behauptung/aussage/vorschlag
+\newtheorem{designrule}{Design Rule}
+\newtheorem{designrec}{Design Recommendation}
+%\newtheorem{property}[theorem]{Property}   % Satz
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section] % Definition
+%\theoremstyle{example}
+\newtheorem{example}{Example}[section]      % Definition
+%\theoremstyle{remark}
+%\newtheorem{rem}[theorem]{Remark}           % Kommentar
+
+
+
+%================================================================
+% COUNTS
+\newtotcounter{citenum}
+%\def\oldcite{}
+%\let\oldcite=\cite
+\def\cite{\stepcounter{citenum}\cite}
+
+
+%================================================================
+% TABLES
+\def\tablename{Table}   % label for tables
+\def\thetable{\arabic{table}} % arabic numbers for numbering of tables
+
+
+%================================================================
+% COLOR BOXES
+\tcbset{enhanced} % command is used to set options for creating colored boxes. 
+\definecolor{lightgrey}{HTML}{F5F5F5}
+%\definecolor{lightgrey}{gray}{0.95}
+\definecolor{darkgrey}{gray}{0.92}
+\definecolor{rulegrey}{gray}{0.82}
+\newenvironment{mybox}[1][lightgrey]
+{
+    \begin{tcolorbox}[   %% Adjust the following parameters at will.
+        breakable,
+        left=5pt,
+        right=5pt,
+        top=5pt,
+        bottom=5pt,
+        colback=#1,
+        colframe=darkgrey,
+        width=\dimexpr\textwidth\relax,
+        enlarge left by=0mm,
+        boxsep=5pt,
+        arc=5pt,outer arc=5pt,
+        ]
+    }
+    {
+    \end{tcolorbox}
+}
+
+
+%================================================================
+% HEADER
+\pagestyle{fancy}
+\fancypagestyle{main}{%
+    \fancyhf{}%
+    \fancyhead[EL]{\sffamily\nouppercase\leftmark}
+    \fancyhead[OR]{\sffamily\nouppercase\rightmark}
+    \renewcommand{\headrulewidth}{0.5pt}%
+    \renewcommand{\footrulewidth}{0.5pt}%
+    \fancyfoot[EL]{\thepage} % 
+    \fancyfoot[OR]{\thepage}
+    \fancyheadoffset{0cm}
+}
+\fancypagestyle{plain}{%
+    \fancyhf{}%
+    \renewcommand{\headrulewidth}{0pt}%
+    \renewcommand{\footrulewidth}{0pt}%
+    \fancyfoot[EL]{\thepage} 
+    \fancyfoot[OR]{\thepage}
+}
+
+\appto\frontmatter{\pagestyle{empty}}
+\appto\mainmatter{\pagestyle{main}}
+\appto\backmatter{\pagestyle{main}}
+
+
+%================================================================
+% HORIZONTAL LINE
+\newcommand{\myrule}{\par\noindent\rule{\textwidth}{1.0pt}}
+
+%================================================================
+% UNDERLINE
+\newcommand{\wideunderline}[2][2em]{%
+    \uline{\makebox[\ifdim\width>#1\width\else#1\fi][l]{#2}}%
+}
+
+%====== REVISION ================================================
+\newcommand{\highlight}[2]{
+    \ifshowcomments
+        {\color{#1}#2}
+    \else
+        {#2}
+    \fi}
+%================================================================
+\newcommand{\revA}[1]{\highlight{blue}{#1}}                 % rt: red text
+\newcommand{\revB}[1]{\highlight{DarkOrchid}{#1}}           % rt: OliveGreen text
+\newcommand{\revC}[1]{\highlight{YellowOrange}{#1}}         % rt: MidnightBlue text
+% Regular expressions to make all dirty job (version #2 - improved)
+% Command to find all highlighted parts and make them black, remove strickeout text, remove \version 
+% For the field "replace" put: \1 (TexStudio) and $1 (Notepad++)
+% \\rev\w\{(([^{}]*(\{(([^{}]*(\{[^{}]*\}[^{}]*)?)*)\}[^{}]*)?)*)\}|\\rev\wdel\{(([^{}]*(\{(([^{}]*(\{[^{}]*\}[^{}]*)?)*)\}[^{}]*)?)*)\}|\\version  
+
+
+%======= VERSION ================================================
+\newcommand{\version}{
+    %\vspace{-0.5cm}
+    \ifshowmarks
+    %\unskip{\begin{flushright} \tiny{version: \today} \end{flushright}}\unskip
+    %\rhead{\tiny{version: \today}}
+    \begin{flushright}
+        \begin{textblock*}{3cm}(\linewidth-3cm,-0.3cm)
+            %\tiny{version: \today}
+            \tiny{version: \DTMnow}
+        \end{textblock*}
+    \end{flushright}
+    \fi}
+
+
+%================================================================
+% Signature and Date snippet
+\newcommand*{\SignatureAndDate}[1]{%
+    \par\noindent\makebox[2.5in]{\hrulefill} \hfill\makebox[2.0in]{\hrulefill}%
+    \par\noindent\makebox[2.5in][l]{#1}      \hfill\makebox[2.0in][l]{Date}%
+}%
+
+
+%================================================================
+% ADD WORD "APPENDIX" IN THE CHAPTERS NAMES IN TOC
+
+
+%================================================================
+% CHAPTER HEADINGS
+\makeatletter
+\renewcommand*{\sectfont}{\bfseries}
+\renewcommand*{\chapnumfont}{%
+    \usefont{T1}{\@defaultcnfont}{b}{n}\fontsize{100}{120}\selectfont% Default: 100/130
+    \color{chaptergrey}%
+}
+\makeatother
+
+
+%================================================================
+% LINE SPACING
+\renewcommand{\baselinestretch}{1.50}\normalsize
+\setlength{\headheight}{1.1\baselineskip}
+
+
+%================================================================
+% ADD WORD "SECTION" TO CROSSREFERENCES WITHIN DOCUMENT
+\def\sectionautorefname{Section}
+
+
+%================================================================
+%
+
+
+%================================================================
+%
+
+
+%================================================================
+%
+
