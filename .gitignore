@@ -39,7 +39,7 @@ _other/
 *-converted-to.pdf
 *-eps-converted-to.pdf
 /*.pdf
-/thesis-example.pdf
+!/thesis-example.pdf
 
 # Microsoft related files
 ######################
