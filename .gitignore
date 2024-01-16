@@ -36,10 +36,16 @@ _other/
 *.bak
 *.ps
 *.dvi
+*.idx
+*.loa
+*.lot
+*.lof
+*.maf
+*.mtc*
 *-converted-to.pdf
 *-eps-converted-to.pdf
 /*.pdf
-!/thesis-example.pdf
+/thesis-example.pdf
 
 # Microsoft related files
 ######################
@@ -60,11 +66,12 @@ Backup of *.doc*
 # Simulation results
 ######################
 # keep only eps files
-_figures/*
+_figures/*.png
+_figures/*.jpg
+_figures/*.pdf
+_figures/*.rar
 !_figures/*.eps
-
 
 # Other documents
 ######################
 /*.txt
-_figures/*.rar
